@@ -1,0 +1,349 @@
+/* Warehouse Grid and Layout CSS */
+
+/* Grid Configuration */
+.warehouse-grid {
+    display: grid;
+    grid-template-columns: repeat(25, 24px);
+    grid-template-rows: repeat(20, 24px);
+    gap: 1px;
+    background-color: #E0E0E0;
+    border: 2px solid #BDBDBD;
+    border-radius: 4px;
+    padding: 2px;
+}
+
+/* Grid Cell Styles */
+.grid-cell {
+    width: 24px;
+    height: 24px;
+    background-color: #FFFFFF;
+    border: 1px solid #F0F0F0;
+    position: relative;
+    cursor: default;
+}
+
+.grid-cell:hover {
+    background-color: #F5F5F5;
+    border-color: #E0E0E0;
+}
+
+/* Aisle Cells */
+.aisle-cell {
+    background-color: #F8F9FA;
+    border-color: #DEE2E6;
+}
+
+.aisle-cell:hover {
+    background-color: #E9ECEF;
+}
+
+/* Rack Cells */
+.rack-cell {
+    background-color: #FFF3E0;
+    border-color: #FFCC80;
+}
+
+.rack-cell:hover {
+    background-color: #FFE0B2;
+}
+
+/* Packout Zone */
+.packout-cell {
+    background-color: #E8F5E8;
+    border-color: #A5D6A7;
+}
+
+.packout-cell:hover {
+    background-color: #C8E6C9;
+}
+
+/* Robot Position */
+.robot-cell {
+    background-color: #4CAF50;
+    border-color: #388E3C;
+    border-radius: 50%;
+    position: relative;
+    z-index: 10;
+}
+
+.robot-cell.moving {
+    background-color: #2196F3;
+    border-color: #1976D2;
+}
+
+.robot-cell.picking {
+    background-color: #FF5722;
+    border-color: #D84315;
+}
+
+.robot-cell.collecting {
+    background-color: #FF9800;
+    border-color: #F57C00;
+}
+
+.robot-cell.returning {
+    background-color: #9C27B0;
+    border-color: #7B1FA2;
+}
+
+/* Order Target */
+.order-target {
+    background-color: #FF5722;
+    border-color: #D84315;
+    border-radius: 2px;
+    position: relative;
+    z-index: 5;
+}
+
+.order-target.in-progress {
+    background-color: #FFC107;
+    border-color: #FF8F00;
+}
+
+.order-target.completed {
+    background-color: #4CAF50;
+    border-color: #388E3C;
+}
+
+/* Path Visualization */
+.path-cell {
+    background-color: #E3F2FD;
+    border-color: #90CAF9;
+    position: relative;
+}
+
+.path-cell::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background-color: #2196F3;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Direction Arrows */
+.direction-arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    transform: translate(-50%, -50%);
+    z-index: 15;
+}
+
+.direction-arrow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+/* Arrow Directions */
+.arrow-up::before {
+    border-width: 0 4px 8px 4px;
+    border-color: transparent transparent #2196F3 transparent;
+}
+
+.arrow-down::before {
+    border-width: 8px 4px 0 4px;
+    border-color: #2196F3 transparent transparent transparent;
+}
+
+.arrow-left::before {
+    border-width: 4px 8px 4px 0;
+    border-color: transparent #2196F3 transparent transparent;
+}
+
+.arrow-right::before {
+    border-width: 4px 0 4px 8px;
+    border-color: transparent transparent transparent #2196F3;
+}
+
+/* Inventory Items */
+.inventory-item {
+    background-color: #FFF8E1;
+    border-color: #FFCC02;
+    border-radius: 2px;
+    position: relative;
+    z-index: 3;
+}
+
+.inventory-item.low-stock {
+    background-color: #FFEBEE;
+    border-color: #EF5350;
+}
+
+.inventory-item.out-of-stock {
+    background-color: #F5F5F5;
+    border-color: #E0E0E0;
+    opacity: 0.5;
+}
+
+/* Grid Coordinates */
+.grid-coordinates {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    font-size: 8px;
+    color: #999999;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1px 2px;
+    border-radius: 2px;
+}
+
+/* Warehouse Boundaries */
+.warehouse-boundary {
+    border: 3px solid #424242;
+    border-radius: 4px;
+    background-color: #FAFAFA;
+}
+
+/* Snake Path Visualization */
+.snake-path {
+    background-color: #E8F5E8;
+    border-color: #A5D6A7;
+    position: relative;
+}
+
+.snake-path::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 2px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Animation for Robot Movement */
+@keyframes robotMove {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.robot-moving {
+    animation: robotMove 0.5s ease-in-out;
+}
+
+/* Animation for Order Updates */
+@keyframes orderUpdate {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.order-updating {
+    animation: orderUpdate 0.3s ease-in-out;
+}
+
+/* Grid Labels */
+.grid-label {
+    position: absolute;
+    font-size: 10px;
+    color: #666666;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1px 3px;
+    border-radius: 2px;
+    z-index: 20;
+}
+
+.aisle-label {
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.rack-label {
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Warehouse Legend */
+.warehouse-legend {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #E0E0E0;
+    font-size: 12px;
+    z-index: 25;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 8px;
+    border: 1px solid #E0E0E0;
+}
+
+.legend-text {
+    color: #666666;
+    font-size: 11px;
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 1400px) {
+    .warehouse-grid {
+        grid-template-columns: repeat(25, 20px);
+        grid-template-rows: repeat(20, 20px);
+    }
+    
+    .grid-cell {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .warehouse-grid {
+        grid-template-columns: repeat(25, 18px);
+        grid-template-rows: repeat(20, 18px);
+    }
+    
+    .grid-cell {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .grid-coordinates {
+        font-size: 6px;
+    }
+} 

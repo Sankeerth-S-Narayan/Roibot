@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <title>Roibot Warehouse Visualization</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/warehouse.css">
+    <link rel="stylesheet" href="/static/css/components.css">
+</head>
+<body>
+    <div class="main-layout">
+        <!-- Left Sidebar: Two Side-by-Side Vertical Panels -->
+        <div class="left-panels-row">
+            <!-- Panel 1: Order Queue (top), Robot Status (bottom) -->
+            <div class="left-panel panel-1">
+                <div class="panel-half panel-order-queue">
+                    <h3 class="text-center">Order Queue (Active Orders)</h3>
+                    <div class="panel-content"><div id="order-queue-entity"></div></div>
+                </div>
+                <div class="panel-half panel-robot-status">
+                    <h3 class="text-center">Robot Status</h3>
+                    <div class="panel-content"><div id="robot-status-entity"></div></div>
+                </div>
+            </div>
+            <!-- Panel 2: Completed Orders (top), KPIs (bottom) -->
+            <div class="left-panel panel-2">
+                <div class="panel-half panel-completed-orders">
+                    <h3 class="text-center">Completed Orders</h3>
+                    <div class="panel-content"><div id="completed-orders-entity"></div></div>
+                </div>
+                <div class="panel-half panel-kpis">
+                    <h3 class="text-center">KPIs</h3>
+                    <div class="panel-content"><div id="kpi-dashboard"></div></div>
+                </div>
+            </div>
+        </div>
+        <!-- Main Content: Controls/Stats above, Warehouse Grid right -->
+        <div class="main-content">
+            <div class="controls-stats-bar">
+                <div class="controls-group">
+                    <button class="control-btn" id="play-btn">▶️ Play</button>
+                    <button class="control-btn" id="pause-btn">⏸️ Pause</button>
+                    <button class="control-btn" id="reset-btn">🔄 Reset</button>
+                </div>
+                <div class="stats-group">
+                    <span class="stat-label">Simulation Time:</span>
+                    <span class="stat-value" id="simulation-time">00:00:00</span>
+                </div>
+                <div class="stats-group">
+                    <span class="stat-label">Total Orders:</span>
+                    <span class="stat-value" id="total-orders">0</span>
+                </div>
+                <div class="stats-group">
+                    <span class="stat-label">Completed Orders:</span>
+                    <span class="stat-value" id="completed-orders">0</span>
+                </div>
+            </div>
+            <div class="warehouse-grid-container">
+                <canvas id="warehouse-canvas"></canvas>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/warehouse.js"></script>
+    <script src="/static/js/robot.js"></script>
+    <script src="/static/js/orders.js"></script>
+    <script src="/static/js/kpis.js"></script>
+    <script src="/static/js/controls.js"></script>
+</body>
+</html> 

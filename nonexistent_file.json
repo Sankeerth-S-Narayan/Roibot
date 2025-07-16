@@ -1,0 +1,42 @@
+{
+  "simulation": {
+    "name": "Roibot Warehouse Simulation",
+    "version": "1.0.0",
+    "description": "E-commerce warehouse robot simulation with bidirectional snake path navigation"
+  },
+  "timing": {
+    "target_fps": 60,
+    "tick_interval": 0.016667,
+    "simulation_speed": 1.0,
+    "max_delta_time": 0.1
+  },
+  "engine": {
+    "event_queue_size": 1000,
+    "max_concurrent_events": 50,
+    "performance_monitoring": true,
+    "debug_prints": true
+  },
+  "performance": {
+    "target_frame_time": 16.67,
+    "warning_frame_time": 33.33,
+    "critical_frame_time": 100.0
+  },
+  "warehouse": {
+    "aisles": 25,
+    "racks": 20,
+    "base_location": {
+      "aisle": 0,
+      "rack": 0
+    }
+  },
+  "robot": {
+    "movement_speed": 2.0,
+    "animation_smoothing": 0.1,
+    "state_change_delay": 0.05
+  },
+  "orders": {
+    "generation_interval": 40,
+    "max_items_per_order": 4,
+    "continuous_assignment": true
+  }
+}

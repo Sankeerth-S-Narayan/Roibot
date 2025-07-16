@@ -1,0 +1,83 @@
+{
+  "simulation": {
+    "name": "Roibot Warehouse Simulation",
+    "version": "1.0.0",
+    "description": "E-commerce warehouse robot simulation with bidirectional snake path navigation"
+  },
+  "timing": {
+    "target_fps": 60,
+    "tick_interval": 0.033333,
+    "simulation_speed": 0.5,
+    "max_delta_time": 0.1
+  },
+  "engine": {
+    "event_queue_size": 1000,
+    "max_concurrent_events": 50,
+    "performance_monitoring": true,
+    "debug_prints": true
+  },
+  "performance": {
+    "target_frame_time": 33.33,
+    "warning_frame_time": 66.67,
+    "critical_frame_time": 200.0
+  },
+  "warehouse": {
+    "aisles": 25,
+    "racks": 20,
+    "base_location": {
+      "aisle": 0,
+      "rack": 0
+    }
+  },
+  "robot": {
+    "movement_speed": 2.0,
+    "animation_smoothing": 0.1,
+    "state_change_delay": 0.05,
+    "aisle_traversal_time": 3.0,
+    "horizontal_movement_time": 0.5,
+    "direction_change_cooldown": 0.5
+  },
+  "orders": {
+    "generation_interval": 45,
+    "min_items_per_order": 1,
+    "max_items_per_order": 4,
+    "continuous_assignment": true,
+    "order_generation": {
+      "enabled": true,
+      "start_automatically": true,
+      "pause_on_completion": false
+    }
+  },
+  "trail": {
+    "max_trail_length": 20,
+    "trail_duration": 10.0,
+    "fade_rate": 0.1,
+    "update_interval": 0.1,
+    "show_recent_path": true,
+    "show_complete_path": false,
+    "show_highlights": true,
+    "show_debug": false
+  },
+  "bidirectional_navigation": {
+    "aisle_traversal_time": 3.0,
+    "direction_change_cooldown": 0.5,
+    "path_optimization": {
+      "enable_shortest_path": true,
+      "enable_direction_optimization": true,
+      "enable_snake_pattern_integrity": true,
+      "max_path_calculation_time": 0.1
+    },
+    "performance_monitoring": {
+      "enable_path_calculation_timing": true,
+      "enable_direction_change_tracking": true,
+      "enable_movement_efficiency_tracking": true,
+      "performance_warning_threshold": 0.05
+    },
+    "debugging": {
+      "enable_path_visualization": false,
+      "enable_direction_debug": false,
+      "enable_timing_debug": false,
+      "log_level": "info"
+    }
+  }
+} 

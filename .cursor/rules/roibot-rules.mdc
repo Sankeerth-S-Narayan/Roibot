@@ -1,0 +1,112 @@
+---
+alwaysApply: true
+---
+---
+
+description: Defines the structured implementation plan and rules for organizing the warehouse simulation project into modular, phase-based deliverables with milestone tracking and structured collaboration.
+globs:
+
+* "\*\*/\*.md"
+* "\*\*/\*.py"
+* "\*\*/\*.yml"
+* "\*\*/\*.sql"
+  alwaysApply: false
+
+---
+
+# Rule: Warehouse Simulation Project Structure and Workflow
+
+## Goal
+
+To build a modular and extensible warehouse robot simulation system using a clear, rules-driven development process.
+The system will be implemented in multiple structured phases, with emphasis on simulation logic, visual feedback, state management, and robust tracking of each development task.
+
+---
+
+## Implementation Guidelines
+
+### **Core Development Rules**
+
+1. **Do NOT generate code unless the user explicitly requests it.**
+2. All implementation will be structured into phases, listed in `tasks/project-tasks.md`.
+3. Each phase must have its own detailed task file, located in `tasks/phases/phase-x-name.md`.
+4. Before starting a phase, always confirm with the user what phase is to be started.
+5. Begin each phase by asking detailed clarifying questions about the simulation's behavior, logic, or visuals for that phase.
+6. Generate a detailed checklist for the current phase before writing logic.
+7. For large tasks, break them into clear subtasks and tackle them one at a time.
+8. Do NOT move on to the next task or phase until the current one is 100% complete and confirmed.
+9. For every task/subtask completed, provide a 3–4 line summary describing:
+
+   * What was done
+   * What the logic or component does
+   * Why it is important for the system
+10. All logic must follow world-class coding practices: clean, modular, and maintainable.
+11. NEVER execute commands directly. Always provide CLI commands as markdown code blocks formatted for Windows command prompt for the user to run manually.
+12. User is using Windows command prompt system - format all commands accordingly (use Windows path separators, Windows-specific commands, etc.).
+13. Use a controlled simulation loop to update robot state, order state, and metrics consistently and transparently.
+14. All logic must be traceable and verifiable with logs, checkpoints, or progress indicators.
+15. At the beginning of every session, review this `rules.md` file and the current `project-tasks.md` to understand the project state before continuing.
+16. Modularize everything — UI, simulation engine, state, and analytics must be cleanly separated.
+17. Each phase should deliver a testable or visually verifiable outcome.
+
+### **Phase-Specific Task Management**
+
+17. **Detailed phase task lists are ONLY created when actively building that phase.**
+18. **Task files are named as `phase-1-name.md`, `phase-2-name.md`, etc. in the `tasks/phases/` folder.**
+19. **Before creating a phase task list, ask comprehensive clarifying questions specific to that phase.**
+20. **Complete ONE task at a time within a phase and wait for user approval before proceeding to the next task.**
+21. **Only proceed to the next task when the user explicitly gives approval with "yes".**
+22. **Each task completion must be verified and confirmed before moving forward.**
+23. **Phase task files are living documents that get updated as tasks are completed.**
+24. **Track task completion status clearly within each phase file.**
+25. **Every completed task must be checked/ticked (✅) in the corresponding `tasks/phases/phase-x-name.md` file.**
+26. **Update task status from `[ ]` to `[x]` or `[✅]` when each task is completed.**
+
+### **Approval and Progression Workflow**
+
+27. **Phase Start:** Confirm phase selection → Ask clarifying questions → Create detailed task list → Wait for approval
+28. **Task Execution:** Complete single task → Provide summary → Request approval for completion → Wait for "yes" → Tick task as completed → Request approval to proceed → Wait for "yes" → Proceed to next task
+29. **Phase Completion:** All tasks completed → Request approval to mark phase complete → Wait for "yes" → Tick phase as completed in `tasks/project-tasks.md` → Write detailed phase summary → Confirm phase completion → Move to next phase
+30. **Never assume approval:** Always explicitly wait for user confirmation before proceeding
+31. **Always ask for approval before ticking any task as completed:** Never mark a task as done without explicit user approval
+32. **MANDATORY TASK TICKING:** Before proceeding to the next task, ALWAYS tick the completed task as [✅] in the phase file and update the task summary
+33. **RULE UPDATES:** If workflow rules are missing from roibot-rules.md, update the rules file to include them for future reference
+
+### **Phase Completion Documentation**
+
+32. **When a phase is completed, update the `tasks/project-tasks.md` file to mark that phase as completed.**
+33. **Write a detailed summary of what was accomplished in the phase, including:**
+    * **What components were built**
+    * **What functionality was implemented**
+    * **Key technical decisions made**
+    * **Current system state and capabilities**
+    * **Integration points with other phases**
+    * **Any issues encountered and resolved**
+34. **This summary should be comprehensive enough for future sessions to understand the current project state.**
+35. **Update the "Current Status" section in `tasks/project-tasks.md` to reflect the new phase completion.**
+
+---
+
+## Clarifying Questions Framework (Phase-Specific)
+
+### **Before Creating ANY Phase Task List, Ask Comprehensive Questions for understanding the requirements correctly. Even after answering if you have questions you can still ask the user again fro in depth understanding:**
+
+---
+
+## Final Notes
+
+* When debugging or fixing errors, it is critical to ensure that well-established phases and already functional logic are not broken. Every fix should be isolated, traceable, and tested to preserve previously working systems, modifications are allowed but never break the logic.
+
+* Treat each phase as a sprint. Complete it fully before moving on.
+
+* Only build what's necessary for the current phase.
+
+* Keep visual feedback and task-tracking tightly integrated.
+
+* Avoid unnecessary performance bottlenecks or redraws.
+
+* Design everything with extensibility and robustness in mind.
+
+* **CRITICAL:** Always update task completion status in phase files and write comprehensive phase summaries. This documentation is essential for project continuity across sessions and provides clear context for future development work.
+
+---
