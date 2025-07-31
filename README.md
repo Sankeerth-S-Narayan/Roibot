@@ -218,17 +218,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Bidirectional Navigation**: Optimized snake path algorithms for efficiency
 - **Real-time Visualization**: Modern web technologies for live monitoring
 - **Modular Architecture**: Clean, extensible design for future enhancements
-
-## 📞 Support
-
-For questions, issues, or contributions:
-
-- **Issues**: [GitHub Issues](https://github.com/yourusername/roibot/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/roibot/discussions)
-- **Documentation**: See the `docs/` folder for detailed guides
-
 ---
 
-**Built with ❤️ for warehouse automation research and education**
-
-*Last updated: January 2025* 
+*Last updated: July 2025* 
