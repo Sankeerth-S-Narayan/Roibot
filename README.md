@@ -9,7 +9,7 @@
 
 ![Roibot Warehouse Simulation](Simulation.gif)
 
-*A real-time demonstration of the Roibot warehouse robot simulation showing bidirectional snake path navigation, order processing, and live analytics.*
+*A real-time demonstration of the Roibot warehouse robot simulation, order processing, and live analytics.*
 
 ---
 
